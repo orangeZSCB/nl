@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* 自定义按钮样式 */
+    .custom-button {
+      background-color: #0074d9; /* 按钮背景颜色 */
+      color: #fff; /* 文本颜色 */
+      padding: 10px 20px; /* 内边距 */
+      border: none; /* 去掉边框 */
+      cursor: pointer; /* 鼠标指针样式 */
+      border-radius: 5px; /* 圆角 */
+    }
+
+    /* 容器样式，用于居中按钮 */
+    .button-container {
+      text-align: center; /* 文本居中对齐 */
+    }
+    
+    /* 标题样式 */
+    .page-title {
+      text-align: center; /* 文本居中对齐 */
+      font-size: 24px; /* 字体大小 */
+      margin-top: 20px; /* 与按钮之间的外边距 */
+    }
+  </style>
+</head>
+<body>
+  <h1 class="page-title">《新荷》资料库</h1>
+
+  <div class="button-container">
+    <button class="custom-button" onclick="redirectToPage('https://zsccodelnc.cn/nl/reader/1101/')">十月期刊</button>
+    <button class="custom-button" onclick="redirectToPage('https://www.zsccodelnc.cn/nl/wfu')">等待更新</button>
+    <button class="custom-button" onclick="redirectToPage('https://www.zsccodelnc.cn/nl/wfu')">等待更新</button>
+  </div>
+
+  <script>
+    function redirectToPage(url) {
+      // 使用 JavaScript 跳转到指定网页的 URL
+      window.location.href = url;
+    }
+  </script>
+</body>
+</html>

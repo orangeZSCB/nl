@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* 样式可以根据需要自定义 */
+    .image-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 400px;
+    }
+
+    .image-display {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    .button-container {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="image-container">
+    <img class="image-display" id="image" src="/nl/images/1101EG/COV1.png" alt="Image">
+  </div>
+  
+  <div class="button-container">
+    <button onclick="previousImage()">Previous</button>
+    <button onclick="nextImage()">Next</button>
+  </div>
+
+  <script>
+    // 图片数组，包含要显示的图片的URL
+    var images = [
+      "/nl/images/1101EG/COV1.png",
+      "/nl/images/1101EG/COV2.png",
+      "/nl/images/1101EG/1.png",
+      "/nl/images/1101EG/COV3.png",
+      "/nl/images/1101EG/COV4.png"
+    ];
+
+    var currentImageIndex = 0;
+    var imageElement = document.getElementById("image");
+
+    // 显示下一张图片
+    function nextImage() {
+      currentImageIndex = (currentImageIndex + 1) % images.length;
+      updateImage();
+    }
+
+    // 显示上一张图片
+    function previousImage() {
+      currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+      updateImage();
+    }
+
+    // 更新图像元素的 src 属性以显示当前图像
+    function updateImage() {
+      imageElement.src = images[currentImageIndex];
+    }
+
+    // 初始化显示第一张图片
+    updateImage();
+  </script>
+</body>
+</html>
