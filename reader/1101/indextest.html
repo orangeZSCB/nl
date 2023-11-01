@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* 图片容器样式 */
+    .image-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 400px;
+      overflow: hidden; /* 隐藏溢出的内容 */
+    }
+
+    .image-display {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="image-container">
+    <img class="image-display" id="image" src="https://picst.sunbangyan.cn/2023/11/01/f3f9908c7a2b5f0b766e559014618b3a.png" alt="Image">
+  </div>
+
+  <script>
+    var images = [
+      "https://picst.sunbangyan.cn/2023/11/01/f3f9908c7a2b5f0b766e559014618b3a.png",
+      "https://picst.sunbangyan.cn/2023/11/01/f64d88addeb2a46bab66744b6ee55681.png",
+      "https://picdm.sunbangyan.cn/2023/11/01/8cd27eee7e69eb24edd324e76d626d89.png",
+      "https://picss.sunbangyan.cn/2023/11/01/08b7c51b0f023f51057b513371a03d83.png",
+      "https://picdm.sunbangyan.cn/2023/11/01/15fe6541e296a5ff3af09a7298aa9856.png"
+    ];
+
+    var currentImageIndex = 0;
+    var imageElement = document.getElementById("image");
+
+    // 监听滚动事件
+    window.addEventListener("scroll", function () {
+      if (isScrolledIntoView(imageElement)) {
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        updateImage();
+      }
+    });
+
+    function isScrolledIntoView(element) {
+      var rect = element.getBoundingClientRect();
+      return (rect.top <= window.innerHeight && rect.bottom >= 0);
+    }
+
+    function updateImage() {
+      imageElement.src = images[currentImageIndex];
+    }
+
+    updateImage();
+  </script>
+</body>
+</html>

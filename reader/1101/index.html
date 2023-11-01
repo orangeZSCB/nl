@@ -2,36 +2,54 @@
 <html>
 <head>
   <style>
-    /* 样式可以根据需要自定义 */
-    .image-container {
+    /* 图片容器样式 */
+    ..image-container {
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 400px;
+      height: 450px; /* 增加容器高度以容纳放大的图片 */
+      overflow: show; /* 隐藏溢出的内容 */
+      margin-top: 230px; /* 向下移动图片容器 */
     }
 
     .image-display {
-      max-width: 100%;
-      max-height: 100%;
+      max-width: 200%; /* 放大图片 2 倍 */
+      max-height: 200%;
+      transition: transform 0.3s ease; /* 添加过渡效果 */
     }
 
+    /* 按钮容器样式，实现水平居中对齐 */
     .button-container {
       text-align: center;
+    }
+
+    /* 按钮样式 */
+    .custom-button {
+      background-color: #0074d9; /* 按钮背景颜色 */
+      color: #fff; /* 文本颜色 */
+      padding: 10px 20px; /* 内边距 */
+      border: none; /* 去掉边框 */
+      cursor: pointer; /* 鼠标指针样式 */
+      border-radius: 5px; /* 圆角 */
+    }
+
+    /* 美化按钮的悬停效果 */
+    .custom-button:hover {
+      background-color: #0056b3; /* 悬停时的背景颜色 */
     }
   </style>
 </head>
 <body>
   <div class="image-container">
-    <img class="image-display" id="image" src="/nl/images/1101EG/COV1.png" alt="Image">
+    <img class="image-display" id="image" src="https://picst.sunbangyan.cn/2023/11/01/f3f9908c7a2b5f0b766e559014618b3a.png" alt="Image">
   </div>
-  
+
   <div class="button-container">
-    <button onclick="previousImage()">Previous</button>
-    <button onclick="nextImage()">Next</button>
+    <button class="custom-button" onclick="previousImage()">Previous</button>
+    <button class="custom-button" onclick="nextImage()">Next</button>
   </div>
 
   <script>
-    // 图片数组，包含要显示的图片的URL
     var images = [
       "https://picst.sunbangyan.cn/2023/11/01/f3f9908c7a2b5f0b766e559014618b3a.png",
       "https://picst.sunbangyan.cn/2023/11/01/f64d88addeb2a46bab66744b6ee55681.png",
@@ -43,24 +61,22 @@
     var currentImageIndex = 0;
     var imageElement = document.getElementById("image");
 
-    // 显示下一张图片
     function nextImage() {
       currentImageIndex = (currentImageIndex + 1) % images.length;
       updateImage();
     }
 
-    // 显示上一张图片
     function previousImage() {
       currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
       updateImage();
     }
 
-    // 更新图像元素的 src 属性以显示当前图像
     function updateImage() {
+      var transformValue = -currentImageIndex * 100 + "%"; // 根据当前图像索引计算位移
+      imageElement.style.transform = "translateX(" + transformValue + ")";
       imageElement.src = images[currentImageIndex];
     }
 
-    // 初始化显示第一张图片
     updateImage();
   </script>
 </body>
