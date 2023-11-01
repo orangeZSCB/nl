@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    /* 图片容器样式 */
+    .image-container {
+      position: relative; /* 添加相对定位 */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 450px; /* 增加容器高度以容纳放大的图片 */
+      overflow: show; /* 隐藏溢出的内容 */
+      margin-top: 230px; /* 向下移动图片容器 */
+    }
+
+    .image-display {
+      max-width: 100%; /* 放大图片 2 倍 */
+      max-height: 200%;
+    }
+
+
+    /* 按钮样式 */
+    .custom-button {
+      background-color: #0074d9; /* 按钮背景颜色 */
+      color: #fff; /* 文本颜色 */
+      padding: 10px 20px; /* 内边距 */
+      border: none; /* 去掉边框 */
+      cursor: pointer; /* 鼠标指针样式 */
+      border-radius: 5px; /* 圆角 */
+    }
+
+    /* 美化按钮的悬停效果 */
+    .custom-button:hover {
+      background-color: #0056b3; /* 悬停时的背景颜色 */
+    }
+
+    /* 按钮容器样式 */
+    .button-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 230px; /* 向下移动按钮容器 */
+    }
+
+
+  </style>
+</head>
+<body>
+  <div class="image-container">
+    <img class="image-display" id="image" src="https://picst.sunbangyan.cn/2023/11/01/f3f9908c7a2b5f0b766e559014618b3a.png" alt="Image">
+  </div>
+
+  <div class="button-container">
+    <button class="custom-button" onclick="previousImage()">Previous</button>
+    <button class="custom-button" onclick="nextImage()">Next</button>
+  </div>
+
+  <script>
+    var images = [
+"https://picst.sunbangyan.cn/2023/11/01/f3f9908c7a2b5f0b766e559014618b3a.png",
+      "https://picst.sunbangyan.cn/2023/11/01/f64d88addeb2a46bab66744b6ee55681.png",
+      "https://picdm.sunbangyan.cn/2023/11/01/8cd27eee7e69eb24edd324e76d626d89.png",
+      "https://picdm.sunbangyan.cn/2023/11/01/15fe6541e296a5ff3af09a7298aa9856.png",
+
+"https://picss.sunbangyan.cn/2023/11/01/08b7c51b0f023f51057b513371a03d83.png"
+    ];
+
+    var currentImageIndex = 0;
+    var imageElement = document.getElementById("image");
+
+    function nextImage() {
+      currentImageIndex = (currentImageIndex + 1) % images.length;
+      updateImage();
+    }
+
+    function previousImage() {
+      currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+      updateImage();
+    }
+
+    function updateImage() {
+      imageElement.src = images[currentImageIndex];
+    }
+
+    updateImage();
+  </script>
+</body>
+</html>
