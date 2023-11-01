@@ -3,7 +3,8 @@
 <head>
   <style>
     /* 图片容器样式 */
-    ..image-container {
+    .image-container {
+      position: relative; /* 添加相对定位 */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -13,15 +14,10 @@
     }
 
     .image-display {
-      max-width: 200%; /* 放大图片 2 倍 */
+      max-width: 100%; /* 放大图片 2 倍 */
       max-height: 200%;
-      transition: transform 0.3s ease; /* 添加过渡效果 */
     }
 
-    /* 按钮容器样式，实现水平居中对齐 */
-    .button-container {
-      text-align: center;
-    }
 
     /* 按钮样式 */
     .custom-button {
@@ -37,6 +33,15 @@
     .custom-button:hover {
       background-color: #0056b3; /* 悬停时的背景颜色 */
     }
+
+    /* 按钮容器样式 */
+    .button-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 230px; /* 向下移动按钮容器 */
+    }
+
+
   </style>
 </head>
 <body>
@@ -51,11 +56,12 @@
 
   <script>
     var images = [
-      "https://picst.sunbangyan.cn/2023/11/01/f3f9908c7a2b5f0b766e559014618b3a.png",
+"https://picst.sunbangyan.cn/2023/11/01/f3f9908c7a2b5f0b766e559014618b3a.png",
       "https://picst.sunbangyan.cn/2023/11/01/f64d88addeb2a46bab66744b6ee55681.png",
       "https://picdm.sunbangyan.cn/2023/11/01/8cd27eee7e69eb24edd324e76d626d89.png",
-      "https://picss.sunbangyan.cn/2023/11/01/08b7c51b0f023f51057b513371a03d83.png",
-      "https://picdm.sunbangyan.cn/2023/11/01/15fe6541e296a5ff3af09a7298aa9856.png"
+      "https://picdm.sunbangyan.cn/2023/11/01/15fe6541e296a5ff3af09a7298aa9856.png",
+
+"https://picss.sunbangyan.cn/2023/11/01/08b7c51b0f023f51057b513371a03d83.png"
     ];
 
     var currentImageIndex = 0;
@@ -72,8 +78,6 @@
     }
 
     function updateImage() {
-      var transformValue = -currentImageIndex * 100 + "%"; // 根据当前图像索引计算位移
-      imageElement.style.transform = "translateX(" + transformValue + ")";
       imageElement.src = images[currentImageIndex];
     }
 
