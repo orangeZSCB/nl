@@ -38,7 +38,7 @@
     .button-container {
       display: flex;
       justify-content: center;
-      margin-top: 30px; /* 向下移动按钮容器 */
+      margin-top: 150px; /* 向下移动按钮容器 */
     }
 
 
@@ -46,22 +46,23 @@
 </head>
 <body>
   <div class="image-container">
-    <img class="image-display" id="image" src="https://picst.sunbangyan.cn/2023/11/01/f3f9908c7a2b5f0b766e559014618b3a.png" alt="Image">
+    <img class="image-display" id="image" src="https://picdl.sunbangyan.cn/2023/11/02/507e2882ee9938f41afa7cd6a04cf6b5.jpg" alt="Image">
   </div>
 
   <div class="button-container">
-    <button class="custom-button" onclick="previousImage()">Previous</button>
-    <button class="custom-button" onclick="nextImage()">Next</button>
+    <button class="custom-button" onclick="previousImage()">上一张</button>
+    <button class="custom-button" onclick="nextImage()">下一张</button>
   </div>
 
   <script>
     var images = [
-"https://picst.sunbangyan.cn/2023/11/01/f3f9908c7a2b5f0b766e559014618b3a.png",
-      "https://picst.sunbangyan.cn/2023/11/01/f64d88addeb2a46bab66744b6ee55681.png",
-      "https://picdm.sunbangyan.cn/2023/11/01/8cd27eee7e69eb24edd324e76d626d89.png",
-      "https://picdm.sunbangyan.cn/2023/11/01/15fe6541e296a5ff3af09a7298aa9856.png",
-
-"https://picss.sunbangyan.cn/2023/11/01/08b7c51b0f023f51057b513371a03d83.png"
+      "https://picdl.sunbangyan.cn/2023/11/02/507e2882ee9938f41afa7cd6a04cf6b5.jpg",
+      "https://picss.sunbangyan.cn/2023/11/02/6e47c1e21c5e6e437cdd6837afbccb8d.jpg",
+      "https://picdm.sunbangyan.cn/2023/11/02/bd99eaf68c9d190ec079ca1a0d960e83.jpg",
+      "https://picdl.sunbangyan.cn/2023/11/02/b1c481a1617eb973309acb30ed1d8db4.jpg",
+      "https://picss.sunbangyan.cn/2023/11/02/01ad3bf93bfd71dd2a798a809549c2c5.jpg",
+      "https://picdm.sunbangyan.cn/2023/11/02/d64621857827f0345cb3defe63c3ad3e.jpg",
+      "https://picss.sunbangyan.cn/2023/11/02/baa7e80d2f2410e300efac5dfb1c8229.jpg"
     ];
 
     var currentImageIndex = 0;
